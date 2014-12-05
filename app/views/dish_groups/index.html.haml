@@ -1,0 +1,5 @@
+%h1 Listing dish_groups
+
+%ul(ng-controller="DishGroupCtrl")
+  %li(ng-repeat="group in dishGroups")
+    {{group.name}}

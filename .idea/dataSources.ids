@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails MenuCalc: development" uuid="189ff335-6a04-4f3d-a064-37c43824af5b">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails MenuCalc: test" uuid="edb5c01b-0b9b-44a6-b613-0f1d6da6f545">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails MenuCalc: production" uuid="9dec2c5b-88c5-4b62-b56e-596a274e1b3d">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

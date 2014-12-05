@@ -1,0 +1,52 @@
+.container
+  %h2 Dishes
+  .row
+    .col-md-10
+      %button.btn.btn-success(ng-click="new()")
+        %span.glyphicon.glyphicon-plus
+        Додати нову страву
+  .row
+    .col-md-10
+      %tabset(type="pills")
+        %tab(ng-repeat="group in groups" heading="{{group.name}}" active="group.active" disabled="group.disabled" select="getDishes(group.id)")
+          .left-inner-addon
+            %i.glyphicon.glyphicon-search
+            %input.form-control.search(type="search" ng-model="search" placeholder="Пошук в роздiлi")
+          .row
+            .col-md-10
+              %table.table.table-bordered.table-hover
+                %thead
+                  %tr
+                    %th #
+                    %th
+                      %a(href="" ng-click="predicate = 'name'; reverse=!reverse")
+                        Назва страви
+                    %th
+                      %a(href="" ng-click="predicate = 'total_weight'; reverse=!reverse")
+                        Вага, г(ml)
+                    %th
+                      %a(href="" ng-click="predicate = 'price'; reverse=!reverse")
+                        Цiна, грн
+                    %th
+                %tbody
+                  %tr.selectable(ng-repeat="dish in dishes | orderBy:predicate:reverse | filter: search")
+                    %td(ng-click="show(dish)")
+                      {{$index + 1}}
+                    %td(ng-click="show(dish)")
+                      %span
+                        {{dish.name}}
+                    %td(ng-click="show(dish)")
+                      %span
+                        {{dish.total_weight * 1000}}
+                    %td(ng-click="show(dish)")
+                      %span
+                        {{dish.price}}
+                    %td.centered
+                      %a.btn.btn-warning(href='' ng-click="edit(dish)")
+                        %span
+                          %i.glyphicon.glyphicon-pencil
+                          Редагувати
+                      %a.btn.btn-danger(href='' ng-click="delete(dish)")
+                        %span
+                          %i.glyphicon.glyphicon-trash
+                          Видалити

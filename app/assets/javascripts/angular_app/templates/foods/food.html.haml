@@ -1,0 +1,23 @@
+%form.form-horizontal(role='form' ng-submit='submit()' name='foodForm' novalidate)
+  .form-group
+    %label.col-md-2.control-label(for="foodName") Назва продукту
+    .col-md-6
+      %input.form-control#foodName(ng-model="food.name" name="foodName" placeholder="Назва продукту" required)
+      %span.ng-errorText(ng-show="foodForm.foodName.$dirty && foodForm.foodName.$invalid") Введiть назву
+  .form-group
+    %label.col-md-2.control-label(for="foodGroup") Група
+    .col-md-6
+      %select.form-control#foodGroup(ng-model="food.food_group_id" name="foodGroup" required)
+        %option(ng-repeat="group in groups" value="{{group.id}}")
+          {{group.name}}
+      %span.ng-errorText(ng-show="foodForm.foodGroup.$dirty && foodForm.foodGroup.$invalid") Виберiть групу!
+  .form-group
+    %label.col-md-2.control-label(for="foodPrice") Цiна
+    .col-md-6
+      %input.form-control(type="number" ng-model="food.price" name="foodPrice" min="0.1" step="1"  required )
+      %span.ng-errorText(ng-show="foodForm.foodPrice.$error.required && foodForm.foodPrice.$dirty") Цiна не може бути пустою
+      %span.ng-errorText(ng-show="foodForm.foodPrice.$error.min && foodForm.foodPrice.$dirty") Цiна не може бути меншою за 0
+      %span.ng-errorText(ng-show="foodForm.foodPrice.$error.number && foodForm.foodPrice.$dirty") Потебую числове значення
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      %button.btn.btn-success.btn-lg(type="submit" ng-disabled="foodForm.$invalid") Зберегти

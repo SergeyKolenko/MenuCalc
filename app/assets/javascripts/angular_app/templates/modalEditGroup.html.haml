@@ -1,0 +1,14 @@
+.form(role="form" name="Form" ng-submit="ok()"  novalidate)
+  .modal-header
+    %button( type="button" class="close" ng-click="cancel()") &times;
+    %h4.modal-title Редагування групи
+  .modal-body
+    %div
+      %h5 Назва групи
+      %input.form-control(type="text" name="Name" ng-model="group.name" required)
+      %span.ng-errorText(ng-show="Form.$invalid && Form.Name.$dirty")
+        %br
+          Назва не може бути порожньою
+  .modal-footer
+    %button(type="button" class="btn btn-primary" ng-click="ok()"  ng-disabled="groupForm.$invalid") Зберегти
+    %button(type="button" class="btn btn-warning" ng-click="cancel()") Cкасувати

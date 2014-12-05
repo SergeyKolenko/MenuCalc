@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  food_id: MyString
+  integer,: MyString
+  dish_id: MyString
+  integer,: MyString
+  quantity: MyString
+  float: MyString
+
+two:
+  food_id: MyString
+  integer,: MyString
+  dish_id: MyString
+  integer,: MyString
+  quantity: MyString
+  float: MyString

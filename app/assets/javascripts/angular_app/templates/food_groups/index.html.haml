@@ -1,0 +1,39 @@
+.conteiner
+  .row
+    %h1 Список груп продуктiв
+  .row
+    %form.form-inline(role='form' ng-submit='create()' name='groupForm' novalidate)
+      %input.form-control(ng-model="new_group" name='groupName' placeholder="Введiть назву групи" required )
+      %button.btn.btn-success(type="submit" ng-disabled="groupForm.$invalid")
+        %span
+          %i.glyphicon.glyphicon-plus
+          Додати
+      %span(ng-show="groupForm.$invalid && groupForm.groupName.$dirty" class="ng-errorText")
+        %br
+          Назва не може бути порожньою
+  .row
+    %br
+    %table.table.table-bordered.table-hover
+      %thead
+        %tr
+          %th #
+          %th
+            %a(href="" ng-click="predicate = 'name'; reverse=!reverse")
+              Назва групи
+          %th
+      %tbody
+        %tr(ng-repeat="group in groups | orderBy:predicate:reverse")
+          %td
+            {{$index + 1}}
+          %td
+            %span
+              {{group.name}}
+          %td.centered
+            %a.btn.btn-warning(href='' ng-click="edit(group)")
+              %span
+                %i.glyphicon.glyphicon-pencil
+                Редагувати
+            %a.btn.btn-danger(href='' ng-click="delete(group)")
+              %span
+                %i.glyphicon.glyphicon-trash
+                Видалити
