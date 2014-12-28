@@ -32,5 +32,5 @@ class  @GroupCtrl extends BaseCtrl
     }
     modalInstance.result.then (group)=>
       index = @$scope.groups.indexOf _group
-      @group.update(group.id, {name: group.name}).then (data)=>
+      @group.update(group).then (data)=>
         @$scope.groups[index].name = data.name

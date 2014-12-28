@@ -17,9 +17,11 @@
 //= require angular-resource
 //= require angular-route
 //= require angular-messages
+//= require angular-sanitize
 //= require angular-rails-templates
 //= require angular-ui-bootstrap
 //= require angular-ui-bootstrap-tpls
+//= require ui-select.min
 //= require app
 //= require_tree ./angular_app/controllers/App
 //= require_tree ./angular_app

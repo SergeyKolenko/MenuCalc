@@ -1,0 +1,52 @@
+%form.form-horizontal(role='form' name='dishForm' novalidate)
+  .form-group
+    %label.col-md-2.control-label(for="dishName") Назва старви
+    .col-md-6
+      %input.form-control#dishName(ng-model="dish.name" name="dishName" placeholder="Назва продукту" required)
+      %span.ng-errorText(ng-show="dishForm.dishName.$dirty && dishForm.dishName.$invalid") Введiть назву
+  .form-group
+    %label.col-md-2.control-label(for="dishGroup") Група
+    .col-md-6
+      %select.form-control#dishGroup(ng-model="dish.dish_group_id" name="dishGroup" required)
+        %option(ng-repeat="group in groups" value="{{group.id}}")
+          {{group.name}}
+      %span.ng-errorText(ng-show="dishForm.dishGroup.$dirty && dishForm.dishGroup.$invalid") Виберiть групу!
+  .form-group
+    %label.col-md-2.control-label(for="dishIngredients") Iнградiенти
+    .col-md-6
+      %table.table.table-hover#dishIngredients
+        %thead
+          %tr.active
+            %th Назва
+            %th Ціна, грн/кг(л)
+            %th Кiлькiсть, грам(мл)
+            %th
+        %tbody
+          %tr(ng-repeat="ingr in ingredients")
+            %td
+              {{ingr.food.name}}
+            %td
+              {{ingr.food.price}}
+            %td
+              {{ingr.quantity}}
+            %td
+              %button.btn.btn-danger(ng-click="deleteIngredient($index,ingr)")
+                %i.glyphicon.glyphicon-trash
+          %tr.warning
+            %td(colspan="2")
+              %ui-select(ng-model="new_ingredient.food" theme="bootstrap" style="min-width: 350px;")
+                %ui-select-match(placeholder="Пошук по назві")
+                  {{$select.selected.name}}
+                %ui-select-choices(repeat="food in foods | filter: {name: $select.search}")
+                  %div(ng-bind-html="food.name | highlight: $select.search")
+                  %small
+                    {{food.price}} грн/кг(л)
+            %td
+              %input.form-control(type="number" ng-model="new_ingredient.quantity" min="1" step="10" value="100")
+            %td
+              %button.btn.btn-success(type="button" ng-click="newIngredient()" ng-disabled="!new_ingredient.food || new_ingredient.quantity<=0")
+                %i.glyphicon.glyphicon-plus
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      %button.btn.btn-success.btn-lg(type="button" ng-click="submit()" ng-disabled="dishForm.$invalid || dish.ingredients.length==0") Зберегти
+      %button.btn.btn-default.btn-lg(ng-click="cancel()") Скасувати

@@ -32,9 +32,13 @@ class DishesController < ApplicationController
   # POST /dishes.json
   def create
     @dish = Dish.new(dish_params)
+    puts @dish.inspect
 
     respond_to do |format|
       if @dish.save
+        params[:ingredients].each do |ingredient|
+          Ingredient.create(dish_id: @dish.id, food_id: ingredient[:food][:id], quantity: ingredient[:quantity].to_f / 1000)
+        end
         format.html { redirect_to @dish, notice: 'Dish was successfully created.' }
         format.json { render :show, status: :created, location: @dish }
       else
@@ -76,6 +80,6 @@ class DishesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dish_params
-      params.require(:dish).permit(:name, :price, :total_weight, :dish_group_id)
+      params.require(:dish).permit(:name, :dish_group_id)
     end
 end

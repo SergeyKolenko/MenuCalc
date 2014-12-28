@@ -23,7 +23,7 @@ class IngredientsController < ApplicationController
   end
 
   def findByDish
-    @ingredients = Ingredient.where(dish_id: params[:dish_id]).includes(:food)
+    @ingredients = Ingredient.where(dish_id: params[:dish_id])
     respond_with @ingredients
   end
 
@@ -48,10 +48,8 @@ class IngredientsController < ApplicationController
   def update
     respond_to do |format|
       if @ingredient.update(ingredient_params)
-        format.html { redirect_to @ingredient, notice: 'Ingredient was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ingredient }
+        format.json { render @ingredient, status: :ok, location: @ingredient }
       else
-        format.html { render :edit }
         format.json { render json: @ingredient.errors, status: :unprocessable_entity }
       end
     end
@@ -62,7 +60,6 @@ class IngredientsController < ApplicationController
   def destroy
     @ingredient.destroy
     respond_to do |format|
-      format.html { redirect_to ingredients_url, notice: 'Ingredient was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

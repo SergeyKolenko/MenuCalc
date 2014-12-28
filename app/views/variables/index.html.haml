@@ -1,0 +1,23 @@
+%h1 Listing variables
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Value
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @variables.each do |variable|
+      %tr
+        %td= variable.name
+        %td= variable.value
+        %td= link_to 'Show', variable
+        %td= link_to 'Edit', edit_variable_path(variable)
+        %td= link_to 'Destroy', variable, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Variable', new_variable_path

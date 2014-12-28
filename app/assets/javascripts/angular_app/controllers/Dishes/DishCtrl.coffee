@@ -17,7 +17,7 @@ class DishCtrl extends BaseCtrl
         @$scope.dishes.splice index, 1
 
   show: (dish)->
-    @$location.path "/dishes/#{dish.id}"
+    @$location.path "/dish/#{dish.id}"
 
   edit: (dish)->
     @$location.path "/dishes/#{dish.id}/edit"

@@ -1,9 +1,9 @@
-@app = angular.module('MenuCalc', ['ngResource', 'ngRoute', 'templates','ui.bootstrap'])
+@app = angular.module('MenuCalc', ['ngResource', 'ngRoute','ngSanitize', 'templates','ui.bootstrap', 'ui.select'])
 
 app.config ['$routeProvider', ($routeProvider) ->
   $routeProvider.when '/', redirectTo: '/dishes'
   $routeProvider.when '/dishes', templateUrl: 'dishes/index.html', controller: 'DishCtrl'
-  $routeProvider.when '/dishes/:id', templateUrl: 'dishes/show.html', controller: 'DishShowCtrl'
+  $routeProvider.when '/dish/:id', templateUrl: 'dishes/show.html', controller: 'DishShowCtrl'
   $routeProvider.when '/dishes/new', templateUrl: 'dishes/new.html', controller: 'DishNewCtrl'
   $routeProvider.when '/dishes/:id/edit', templateUrl: 'dishes/edit.html', controller: 'DishEditCtrl'
   $routeProvider.when '/dish_groups', templateUrl: 'dish_groups/index.html', controller: 'DishGroupCtrl'

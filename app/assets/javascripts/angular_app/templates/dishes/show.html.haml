@@ -1,32 +1,33 @@
-.container.col-md-8
-  .panel.panel-default
-    .panel-heading
-      %h2
-        {{dish.name}}
-    .panel-body
-      .row
-        %label.col-md-2.control-label Група
-        .col-md-6
-          {{dish.group.name}}
-      .row
-        %label.col-md-2.control-label Вага
-        .col-md-6
-          {{dish.total_weight * 1000}} г
-      .row
-        %label.col-md-2.control-label Цiна
-        .col-md-6
-          {{dish.price}} грн
-      .row
-        %table.table.table-striped.table-bordered
-          %thead
-            %tr.info
-              %th
-                Назва продукту
-              %th
-                Цiна, грн/кг(л)
-              %th
-                Кiлькiсть, г(мл)
-          %tbody
-            %tr(ng-repeat="food in dish.ingredients")
-              %td.centered
-                {{food.}}
+This is Show!!!
+-#.container.col-md-8
+-#  .panel.panel-default
+-#    .panel-heading
+-#      %h2
+-#        {{dish.name}}
+-#    .panel-body
+-#      .row
+-#        %label.col-md-2.control-label Група
+-#        .col-md-6
+-#          {{dish.group.name}}
+-#      .row
+-#        %label.col-md-2.control-label Вага
+-#        .col-md-6
+-#          {{dish.total_weight * 1000}} г
+-#      .row
+-#        %label.col-md-2.control-label Цiна
+-#        .col-md-6
+-#          {{dish.price}} грн
+-#      .row
+-#        %table.table.table-striped.table-bordered
+-#          %thead
+-#            %tr.info
+-#              %th
+-#                Назва продукту
+-#              %th
+-#                Цiна, грн/кг(л)
+-#              %th
+-#                Кiлькiсть, г(мл)
+-#          %tbody
+-#            %tr(ng-repeat="food in dish.ingredients")
+-#              %td.centered
+-#                {{food.}}

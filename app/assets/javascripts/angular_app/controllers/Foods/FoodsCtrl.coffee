@@ -7,7 +7,6 @@ class FoodsCtrl extends  BaseCtrl
     @foodService = new @Food()
 
   getFoods: (groupId) ->
-#    @$scope.currentGroup = groupId
     @$scope.foods = @foodService.getByGroup groupId
 
   delete: (food)->
