@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username:
+  password: 
+  host: 
+
+development:
+  <<: *default
+  database: MenuCalc_development
+
+test:
+  <<: *default
+  database: MenuCalc_test
+
+production:
+  <<: *default
+  database: MenuCalc_production
+  username: 
+  password:
