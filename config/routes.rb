@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-
+  # get '*path', to: 'dishes#index'
 
 
   root 'dishes#index'
+  # get '*path', to: 'dishes#index'
   scope :api, defaults: {format: :json} do
     resources :food_dishes, except: [:new, :edit]
     resources :ingredients, except: [:new, :edit] do

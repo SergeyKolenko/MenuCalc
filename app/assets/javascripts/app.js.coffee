@@ -1,6 +1,6 @@
 @app = angular.module('MenuCalc', ['ngResource', 'ngRoute','ngSanitize', 'templates','ui.bootstrap', 'ui.select'])
 
-app.config ['$routeProvider', ($routeProvider) ->
+app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
   $routeProvider.when '/', redirectTo: '/dishes'
   $routeProvider.when '/dishes', templateUrl: 'dishes/index.html', controller: 'DishCtrl'
   $routeProvider.when '/dish/:id', templateUrl: 'dishes/show.html', controller: 'DishShowCtrl'
@@ -11,4 +11,9 @@ app.config ['$routeProvider', ($routeProvider) ->
   $routeProvider.when '/foods', templateUrl: 'foods/index.html', controller: 'FoodsCtrl'
   $routeProvider.when '/foods/new', templateUrl: 'foods/new.html', controller: 'FoodNewCtrl'
   $routeProvider.when '/foods/:id/edit', templateUrl: 'foods/edit.html', controller: 'FoodEditCtrl'
+
+#  $locationProvider.html5Mode({
+#    enabled: true,
+#    requireBase: true
+#  })
 ]

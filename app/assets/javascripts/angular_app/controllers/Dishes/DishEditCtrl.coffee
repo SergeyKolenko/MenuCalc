@@ -16,10 +16,11 @@ class DishEditCtrl extends BaseCtrl
     @ingredient_service.create({
       dish_id: @$scope.dish.id
       food_id: @$scope.new_ingredient.food.id
-      quantity: @$scope.new_ingredient.quantity
+      quantity: @$scope.new_ingredient.quantity / 1000
     }).then (data)=>
         ingredient = @$scope.new_ingredient
         ingredient.id = data.id
+        ingredient.quantity = data.quantity
         @$scope.ingredients.push ingredient
         @$scope.new_ingredient = {food: undefined , quantity: 100}
   deleteIngredient: (index,ingr)->

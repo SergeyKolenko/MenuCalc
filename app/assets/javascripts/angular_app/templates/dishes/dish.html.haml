@@ -28,7 +28,7 @@
             %td
               {{ingr.food.price}}
             %td
-              {{ingr.quantity}}
+              {{ingr.quantity * 1000}}
             %td
               %button.btn.btn-danger(ng-click="deleteIngredient($index,ingr)")
                 %i.glyphicon.glyphicon-trash

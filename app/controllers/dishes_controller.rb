@@ -1,4 +1,5 @@
 class DishesController < ApplicationController
+  # http_basic_authenticate_with name: Rails.application.secrets.user, password: Rails.application.secrets.password
   before_action :set_dish, only: [:show, :edit, :update, :destroy]
   respond_to :json
   # GET /dishes
