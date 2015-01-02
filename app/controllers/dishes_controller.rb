@@ -38,7 +38,7 @@ class DishesController < ApplicationController
     respond_to do |format|
       if @dish.save
         params[:ingredients].each do |ingredient|
-          Ingredient.create(dish_id: @dish.id, food_id: ingredient[:food][:id], quantity: ingredient[:quantity].to_f / 1000)
+          Ingredient.create(dish_id: @dish.id, food_id: ingredient[:food][:id], quantity: ingredient[:quantity].to_f)
         end
         format.html { redirect_to @dish, notice: 'Dish was successfully created.' }
         format.json { render :show, status: :created, location: @dish }

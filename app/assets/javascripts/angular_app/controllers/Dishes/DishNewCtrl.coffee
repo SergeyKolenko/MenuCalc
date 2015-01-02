@@ -10,7 +10,9 @@ class DishNewCtrl extends BaseCtrl
     @$scope.ingredients = []
 
   newIngredient: ->
-    @$scope.ingredients.push @$scope.new_ingredient
+    ingrad = @$scope.new_ingredient
+    ingrad.quantity /= 1000
+    @$scope.ingredients.push ingrad
     @$scope.new_ingredient = {food: undefined , quantity: 100}
   deleteIngredient: (index,ingr)->
     @$scope.ingredients.splice index, 1
