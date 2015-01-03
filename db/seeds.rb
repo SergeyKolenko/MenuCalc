@@ -5,4 +5,4 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Variable.create name: 'price_factor', value: '2.5'
+Variable.create name: 'price_factor', value: 2.5

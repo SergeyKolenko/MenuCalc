@@ -1,5 +1,6 @@
 class VariablesController < ApplicationController
   before_action :set_variable, only: [:show, :edit, :update, :destroy]
+  respond_to :json
 
   # GET /variables
   # GET /variables.json
@@ -10,6 +11,11 @@ class VariablesController < ApplicationController
   # GET /variables/1
   # GET /variables/1.json
   def show
+  end
+
+  def findByName
+    @variable = Variable.find_by_name params[:name]
+    respond_with @variable
   end
 
   # GET /variables/new

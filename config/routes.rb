@@ -6,13 +6,16 @@ Rails.application.routes.draw do
   root 'dishes#index'
   # get '*path', to: 'dishes#index'
   scope :api, defaults: {format: :json} do
-    resources :food_dishes, except: [:new, :edit]
     resources :ingredients, except: [:new, :edit] do
       collection do
         get 'byGroup', to: 'ingredients#findByDish'
       end
     end
-    resources :variables, only: [:show, :update]
+    resources :variables, only: [:show, :update] do
+      collection do
+        get 'findByName', to: 'variables#findByName'
+      end
+    end
     resources :dishes, except: [:new, :edit] do
       collection do
         get 'group/:group_id', to: 'dishes#getByGroup'

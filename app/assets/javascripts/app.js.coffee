@@ -11,9 +11,6 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
   $routeProvider.when '/foods', templateUrl: 'foods/index.html', controller: 'FoodsCtrl'
   $routeProvider.when '/foods/new', templateUrl: 'foods/new.html', controller: 'FoodNewCtrl'
   $routeProvider.when '/foods/:id/edit', templateUrl: 'foods/edit.html', controller: 'FoodEditCtrl'
-
-#  $locationProvider.html5Mode({
-#    enabled: true,
-#    requireBase: true
-#  })
+  $routeProvider.when '/price_factor', templateUrl: 'price_factor/price_factor.html', controller: 'PriceFactorCtrl'
+  $routeProvider.otherwise { redirectTo: '/' }
 ]

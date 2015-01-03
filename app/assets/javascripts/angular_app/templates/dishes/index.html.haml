@@ -1,10 +1,13 @@
 .container
-  %h2 Dishes
+  .row
+    .col-md-offset-3
+      %h1 Меню
   .row
     .col-md-10
       %button.btn.btn-success(ng-click="new()")
         %span.glyphicon.glyphicon-plus
         Додати нову страву
+  %hr
   .row
     .col-md-10
       %tabset(type="pills")

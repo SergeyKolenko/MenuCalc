@@ -1,5 +1,5 @@
-.container.col-md-8
-  .panel.panel-default
+.container.col-md-10
+  .panel.panel-success
     .panel-heading
       %h2
         {{dish.name}}
@@ -9,31 +9,33 @@
         .col-md-6
           {{dish.dish_group.name}}
       .row
-        %label.col-md-2.control-label Вага
+        %label.col-md-2.control-label Маса
         .col-md-6
-          {{dish.total_weight * 1000}} г
+          {{dish.total_weight * 1000}} г(мл)
       .row
         %label.col-md-2.control-label Цiна
         .col-md-6
           {{dish.price}} грн
       .row
-        %table.table.table-striped.table-bordered
-          %thead
-            %tr.info
-              %th
-                Назва продукту
-              %th
-                Цiна, грн/кг(л)
-              %th
-                Кiлькiсть, г(мл)
-          %tbody
-            %tr(ng-repeat="ingredient in ingredients")
-              %td
-                {{ingredient.food.name}}
-              %td
-                {{ingredient.food.price}}
-              %td
-                {{ingredient.quantity * 1000}}
+        %label.col-md-2.control-label Інградієнти
+        .col-md-8
+          %table.table.table-striped.table-bordered
+            %thead
+              %tr.info
+                %th
+                  Назва продукту
+                %th
+                  Цiна, грн/кг(л)
+                %th
+                  Кiлькiсть, г(мл)
+            %tbody
+              %tr(ng-repeat="ingredient in ingredients")
+                %td
+                  {{ingredient.food.name}}
+                %td
+                  {{ingredient.food.price}}
+                %td
+                  {{ingredient.quantity * 1000}}
   %buttton.btn.btn-warning.btn-lg(ng-click="edit()")
     %i.glyphicon.glyphicon-pencil
     Редагувати
