@@ -7,7 +7,7 @@
   .form-group
     %label.col-md-2.control-label(for="dishGroup") Група
     .col-md-6
-      %select.form-control#dishGroup(ng-model="dish.dish_group_id" name="dishGroup" required)
+      %select.form-control#dishGroup(ng-model="dish.dish_group.id" name="dishGroup" required)
         %option(ng-repeat="group in groups" value="{{group.id}}")
           {{group.name}}
       %span.ng-errorText(ng-show="dishForm.dishGroup.$dirty && dishForm.dishGroup.$invalid") Виберiть групу!

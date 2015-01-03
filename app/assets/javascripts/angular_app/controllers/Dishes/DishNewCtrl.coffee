@@ -20,5 +20,6 @@ class DishNewCtrl extends BaseCtrl
     @$window.history.back()
   submit: ->
     @$scope.dish.ingredients = @$scope.ingredients
+    @$scope.dish.dish_group_id = @$scope.dish.dish_group.id
     @dish_service.create(@$scope.dish).then =>
       @$location.path '/dishes'

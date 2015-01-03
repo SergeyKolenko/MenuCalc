@@ -10,13 +10,19 @@ class Ingredient < ActiveRecord::Base
 
   after_save :calc
   after_destroy :calc
-  private
+
+
   def calc
     unless dish.ingredients.blank?
       dish.total_weight = dish.ingredients.sum :quantity
       dish.price = dish.ingredients.joins(:food).sum('quantity * price') * Variable.find_by_name('price_factor').value
-      dish.save
+    else
+      dish.total_weight = 0
+      dish.price = 0
     end
+
+    dish.save
+
   end
 
 end

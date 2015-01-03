@@ -29,5 +29,6 @@ class DishEditCtrl extends BaseCtrl
   cancel: ->
     @$window.history.back()
   submit: ->
+    @$scope.dish.dish_group_id = @$scope.dish.dish_group.id
     @dish_service.update(@$scope.dish).then =>
       @$location.path '/dishes'

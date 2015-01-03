@@ -9,9 +9,9 @@ class DishShowCtrl extends BaseCtrl
     @$scope.dish = @dish_service.find @$routeParams.id
 
   edit: ->
-    $location.path "dishes/#{@$scope.dish.id}/edit"
+    @$location.path "dishes/#{@$scope.dish.id}/edit"
 
   delete: ->
     if @$window.confirm("Ви дiйсно xочете видалити  #{@$scope.dish.name}?")
-      @dishService.delete(@$scope.dish.id).then =>
-        $location.path "/dishes"
+      @dish_service.delete(@$scope.dish.id).then =>
+        @$location.path "/dishes"
