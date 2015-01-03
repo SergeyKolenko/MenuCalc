@@ -1,5 +1,5 @@
 class VariablesController < ApplicationController
-  before_action :set_variable, only: [:show,update]
+  before_action :set_variable, only: [:show, :update]
   respond_to :json
 
   # GET /variables/1
