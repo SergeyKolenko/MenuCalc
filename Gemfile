@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.1.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use postgresql as the database for Active Record
@@ -33,6 +33,8 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'angular-rails-templates'
 gem 'angular-ui-bootstrap-rails'
+
+gem 'rails_12factor', group: :production
 
 group :development do
   gem 'better_errors'
