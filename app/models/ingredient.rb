@@ -8,9 +8,6 @@ class Ingredient < ActiveRecord::Base
 
   validates :quantity, presence: true, numericality: {greater_then: 0}
 
-  # after_save do
-  #   dish.calc
-  # end
   after_save :calc
   after_destroy :calc
   private

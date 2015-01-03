@@ -1,12 +1,6 @@
 class VariablesController < ApplicationController
-  before_action :set_variable, only: [:show, :edit, :update, :destroy]
+  before_action :set_variable, only: [:show,update]
   respond_to :json
-
-  # GET /variables
-  # GET /variables.json
-  def index
-    @variables = Variable.all
-  end
 
   # GET /variables/1
   # GET /variables/1.json
@@ -18,30 +12,6 @@ class VariablesController < ApplicationController
     respond_with @variable
   end
 
-  # GET /variables/new
-  def new
-    @variable = Variable.new
-  end
-
-  # GET /variables/1/edit
-  def edit
-  end
-
-  # POST /variables
-  # POST /variables.json
-  def create
-    @variable = Variable.new(variable_params)
-
-    respond_to do |format|
-      if @variable.save
-        format.html { redirect_to @variable, notice: 'Variable was successfully created.' }
-        format.json { render :show, status: :created, location: @variable }
-      else
-        format.html { render :new }
-        format.json { render json: @variable.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # PATCH/PUT /variables/1
   # PATCH/PUT /variables/1.json
@@ -57,15 +27,7 @@ class VariablesController < ApplicationController
     end
   end
 
-  # DELETE /variables/1
-  # DELETE /variables/1.json
-  def destroy
-    @variable.destroy
-    respond_to do |format|
-      format.html { redirect_to variables_url, notice: 'Variable was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

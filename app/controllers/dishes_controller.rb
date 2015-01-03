@@ -1,6 +1,5 @@
 class DishesController < ApplicationController
-  # http_basic_authenticate_with name: Rails.application.secrets.user, password: Rails.application.secrets.password
-  before_action :set_dish, only: [:show, :edit, :update, :destroy]
+  before_action :set_dish, only: [:show, :update, :destroy]
   respond_to :json
   # GET /dishes
   # GET /dishes.json
@@ -13,14 +12,6 @@ class DishesController < ApplicationController
   def show
   end
 
-  # GET /dishes/new
-  def new
-    @dish = Dish.new
-  end
-
-  # GET /dishes/1/edit
-  def edit
-  end
 
   def getByGroup
     @dishes = Dish.where dish_group_id: params[:group_id]

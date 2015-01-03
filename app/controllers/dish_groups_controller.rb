@@ -1,5 +1,5 @@
 class DishGroupsController < ApplicationController
-  before_action :set_dish_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_dish_group, only: [:show, :update, :destroy]
   respond_to :json
 
   # GET /dish_groups
@@ -11,15 +11,6 @@ class DishGroupsController < ApplicationController
   # GET /dish_groups/1
   # GET /dish_groups/1.json
   def show
-  end
-
-  # GET /dish_groups/new
-  def new
-    @dish_group = DishGroup.new
-  end
-
-  # GET /dish_groups/1/edit
-  def edit
   end
 
   # POST /dish_groups

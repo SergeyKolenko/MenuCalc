@@ -1,5 +1,5 @@
 class FoodGroupsController < ApplicationController
-  before_action :set_food_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_food_group, only: [:show, :update, :destroy]
   respond_to :json
 
   # GET /food_groups
@@ -11,15 +11,6 @@ class FoodGroupsController < ApplicationController
   # GET /food_groups/1
   # GET /food_groups/1.json
   def show
-  end
-
-  # GET /food_groups/new
-  def new
-    @food_group = FoodGroup.new
-  end
-
-  # GET /food_groups/1/edit
-  def edit
   end
 
   # POST /food_groups

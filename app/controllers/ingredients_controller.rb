@@ -1,5 +1,5 @@
 class IngredientsController < ApplicationController
-  before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
+  before_action :set_ingredient, only: [:show, :update, :destroy]
   respond_to :json
 
   # GET /ingredients
@@ -11,15 +11,6 @@ class IngredientsController < ApplicationController
   # GET /ingredients/1
   # GET /ingredients/1.json
   def show
-  end
-
-  # GET /ingredients/new
-  def new
-    @ingredient = Ingredient.new
-  end
-
-  # GET /ingredients/1/edit
-  def edit
   end
 
   def findByDish
