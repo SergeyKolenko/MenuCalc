@@ -33,6 +33,7 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'angular-rails-templates'
 gem 'angular-ui-bootstrap-rails'
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
 gem 'rails_12factor', group: :production
 
